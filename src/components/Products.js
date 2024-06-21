@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { useDispatch } from "react-redux";
+import {add} from "../store/CartSlice";
 
 const Product = () => {
+  const dispatch = useDispatch();
   const fakeurl1 = "https://api.escuelajs.co/api/v1/products"
 
   const [products, getProducts] = useState([]);
@@ -15,6 +18,10 @@ const Product = () => {
 
   });
   },[])
+
+  const addToCart = (product) => {
+    dispatch(add(product));
+  }
 
   // const fakeurl1 = "https://fakestoreapi.com/products"
   const Cards = products.map(product => (
@@ -30,7 +37,7 @@ const Product = () => {
         </Card.Text>
       </Card.Body>
       <Card.Footer style={{background: "#fff" }}>
-      <Button variant="primary">Add To Cart</Button>
+      <Button variant="primary" onClick={() => addToCart(product)}>Add To Cart</Button>
       </Card.Footer>
     </Card>
     </div>
