@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
+
 const Cart = () => {
   const cartProducts = useSelector(state => state.CartSlice);
   const Cart = cartProducts.map(product => (
