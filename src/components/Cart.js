@@ -4,7 +4,6 @@ import Card from 'react-bootstrap/Card';
 
 const Cart = () => {
   const cartProducts = useSelector(state => state.CartSlice);
-console.log(cartProducts)
   const Cart = cartProducts.map(product => (
     <div className="col-md-12" style={{marginBottom: "10px"}}>
       <Card style={{ width: '18rem' }} key={product.id} className="h-100">
